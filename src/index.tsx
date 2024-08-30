@@ -1,7 +1,6 @@
 import { createRoot } from 'react-dom/client';
-import { StrictMode, CSSProperties } from 'react';
+import React, { StrictMode, CSSProperties, useEffect, useState } from 'react';
 import clsx from 'clsx';
-
 import { Article } from './components/article/Article';
 import { ArticleParamsForm } from './components/article-params-form/ArticleParamsForm';
 import { defaultArticleState } from './constants/articleProps';
@@ -13,19 +12,34 @@ const domNode = document.getElementById('root') as HTMLDivElement;
 const root = createRoot(domNode);
 
 const App = () => {
+	const [articleState, setArticleState] = useState(() => {
+		const savedState = localStorage.getItem('articleState');
+		return savedState ? JSON.parse(savedState) : defaultArticleState;
+	});
+
+	const handleFormChange = (newState: any) => {
+		setArticleState(newState);
+		localStorage.setItem('articleState', JSON.stringify(newState));
+	};
+
+	useEffect(() => {
+		// Применяем начальное состояние
+		localStorage.setItem('articleState', JSON.stringify(articleState));
+	}, []);
+
 	return (
 		<div
 			className={clsx(styles.main)}
 			style={
 				{
-					'--font-family': defaultArticleState.fontFamilyOption.value,
-					'--font-size': defaultArticleState.fontSizeOption.value,
-					'--font-color': defaultArticleState.fontColor.value,
-					'--container-width': defaultArticleState.contentWidth.value,
-					'--bg-color': defaultArticleState.backgroundColor.value,
+					'--font-family': articleState.fontFamily,
+					'--font-size': articleState.fontSize,
+					'--font-color': articleState.fontColor,
+					'--container-width': articleState.contentWidth,
+					'--bg-color': articleState.backgroundColor,
 				} as CSSProperties
 			}>
-			<ArticleParamsForm />
+			<ArticleParamsForm onChange={handleFormChange} />
 			<Article />
 		</div>
 	);
