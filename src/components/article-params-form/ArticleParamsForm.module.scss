@@ -1,9 +1,13 @@
 .container {
 	position: fixed;
 	left: 0;
+	z-index: 1000;
 	width: 616px;
 	height: 100%;
 	overflow: scroll;
+	background-color: #ffffff;
+	border-right: 1px solid #000000;
+	box-shadow: 2px 0 5px rgb(0 0 0 / 20%);
 	transform: translate(-616px);
 	transition: transform 0.5s ease;
 }
@@ -25,8 +29,171 @@
 	border-right: 1px solid #000000;
 }
 
+.form h3 {
+	margin-bottom: 30px;
+	font-weight: 800;
+	font-size: 31px;
+}
+
+.selectSize {
+	margin-bottom: 20px;
+}
+
+.inputGroup {
+	position: relative;
+	margin-bottom: 20px;
+}
+
+.inputGroup select option:hover {
+	color: #000000;
+	background-color: #ffcc00;
+}
+
 .bottomContainer {
 	display: flex;
 	justify-content: space-between;
 	margin-top: auto;
+}
+
+button[type='reset'] {
+	padding: 10px 20px;
+	color: #000000;
+	font-size: 16px;
+	background-color: #ffffff;
+	border: 2px solid #000000;
+	cursor: pointer;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button[type='reset']:hover {
+	background-color: #f1f1f1;
+}
+
+button[type='submit'] {
+	padding: 10px 20px;
+	color: #000000;
+	font-size: 16px;
+	background-color: #ffcc00;
+	border: 2px solid #000000;
+	cursor: pointer;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button[type='submit']:hover {
+	background-color: #e6b800;
+}
+
+.selectField {
+	height: 42px;
+	margin-top: 4px;
+	border: none;
+}
+
+.textBlock {
+	margin-bottom: 30px;
+}
+
+.backgroundBlock {
+	padding-top: 50px;
+	border-top: 1px solid #d7d7d7;
+}
+
+.font-open-sans {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.font-ubuntu {
+	font-family: 'Ubuntu', sans-serif;
+}
+
+.font-cormorant-garamond {
+	font-family: 'Cormorant Garamond', serif;
+}
+
+.font-days-one {
+	font-family: 'Days One', sans-serif;
+}
+
+.font-merriweather {
+	font-family: 'Merriweather', serif;
+}
+
+.black {
+	color: #000000;
+}
+
+.white {
+	color: #ffffff;
+}
+
+.gray {
+	color: #808080;
+}
+
+.pink {
+	color: #ffc0cb;
+}
+
+.hot-pink {
+	color: #ff69b4;
+}
+
+.yellow {
+	color: #ffff00;
+}
+
+.green {
+	color: #008000;
+}
+
+.cyan {
+	color: #00ffff;
+}
+
+.purple {
+	color: #800080;
+}
+
+.white-bg {
+	background-color: #ffffff;
+}
+
+.black-bg {
+	background-color: #000000;
+}
+
+.gray-bg {
+	background-color: #d7d7d7;
+}
+
+.pink-bg {
+	background-color: #feafe8;
+}
+
+.hot-pink-bg {
+	background-color: #fd24af;
+}
+
+.yellow-bg {
+	background-color: #ffff00;
+}
+
+.green-bg {
+	background-color: #80d994;
+}
+
+.cyan-bg {
+	background-color: #6fc1fd;
+}
+
+.purple-bg {
+	background-color: #5f0dee;
+}
+
+.wide {
+	width: 100%;
+}
+
+.narrow {
+	width: 50%;
 }
